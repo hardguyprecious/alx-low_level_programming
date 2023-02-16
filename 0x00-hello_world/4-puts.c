@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - this is the main function
+ * main - This is Entry point
  *
  * Return: always 0
  */
