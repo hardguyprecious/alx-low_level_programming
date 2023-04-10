@@ -1,8 +1,3 @@
-/*
- * File: 100-elf_header.c
- * A program that displays data in ELF header at the start of an ELF file.
- */
-
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -23,22 +18,22 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
- * check_elf - This checks if a file is an ELF file.
- * @e_ident: This is a pointer to an array containing ELF magic numbers.
+ * check_elf - Checks if a file is an ELF file.
+ * @e_ident: A pointer to an array containing the ELF magic numbers.
  *
  * Description: If the file is not an ELF file - exit code 98.
  */
 void check_elf(unsigned char *e_ident)
 {
-	int fileindex;
+	int index;
 
+		for (index = 0; index < 4; index++)
 	{
-		if (e_ident[fileindex] != 127 &&
-		    e_ident[fileindex] != 'E' &&
-		    e_ident[fileindex] != 'L' &&
-		    e_ident[fileindex] != 'F')
+		if (e_ident[index] != 127 &&
+		    e_ident[index] != 'E' &&
+		    e_ident[index] != 'L' &&
+		    e_ident[index] != 'F')
 		{
-			/* If any byte is invalid, print an error message and exit */
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
 		}
@@ -53,15 +48,15 @@ void check_elf(unsigned char *e_ident)
  */
 void print_magic(unsigned char *e_ident)
 {
-	int fileindex;
+	int index;
 
 	printf("  Magic:   ");
 
-	for (fileindex = 0; fileindex < EI_NIDENT; fileindex++)
+	for (index = 0; index < EI_NIDENT; index++)
 	{
-		printf("%02x", e_ident[fileindex]);
+		printf("%02x", e_ident[index]);
 
-		if (fileindex == EI_NIDENT - 1)
+		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
 			printf(" ");
