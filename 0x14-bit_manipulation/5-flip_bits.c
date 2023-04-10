@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * flip_bits - returns the number of bits you would need to flip to get from one
+ * flip_bits - returns the number of bits you
+ * would need to flip to get from one
  * number to another.
  * @num1: the first number to compare.
  * @num2: the second number to compare.
@@ -21,4 +22,3 @@ unsigned int flip_bits(unsigned long int num1, unsigned long int num2)
 
 	return (num_bits_diff);
 }
-
