@@ -1,3 +1,8 @@
+/*
+ * File: 100-elf_header.c
+ * A program that displays the information contained in the ELF header at the start of an ELF file.
+ */
+
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
